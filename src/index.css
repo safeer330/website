@@ -32,6 +32,19 @@
   color: transparent;
 }
 
+.warm-gradient-border {
+  border: 1px solid transparent;
+  background:
+    linear-gradient(135deg, #171713 0%, #11131a 58%, #0c1018 100%) padding-box,
+    linear-gradient(110deg, #ffb000 0%, #ff7a18 52%, #ff3d2e 100%) border-box;
+}
+
+.warm-gradient-border:hover {
+  background:
+    linear-gradient(135deg, #171713 0%, #11131a 58%, #0c1018 100%) padding-box,
+    linear-gradient(110deg, #ffc233 0%, #ff632e 52%, #ff3d52 100%) border-box;
+}
+
 .section-atmosphere {
   background-color: #0b1019;
   background-image:

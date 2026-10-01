@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
   Tv, Zap, ShieldCheck, Clock, Globe, Headphones, Play, Star, Film, Trophy, Radio,
@@ -13,9 +13,16 @@ import WhatsAppButton from '@/components/WhatsAppButton';
 import Counter from '@/components/Counter';
 import FAQ from '@/components/FAQ';
 import Contact from '@/components/Contact';
+import RestreamPlanGrid from '@/components/RestreamPlanGrid';
+import { WHATSAPP_NUMBER } from '@/constants';
+import { resellerCreditPlans, subscriptionPlans } from '@/data/pricingPlans';
 
 const heroImage = 'https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?auto=format&fit=crop&w=1600&q=85';
 const livingRoomImage = 'https://images.pexels.com/photos/35490296/pexels-photo-35490296.jpeg?auto=compress&cs=tinysrgb&h=650&w=940';
+const resellerPanels = ['Mega OTT', 'Trex OTT', 'Golden OTT', 'Strongk OTT', 'Lion OTT', 'B1G OTT'];
+
+const getPanelWhatsAppLink = (panelName: string) =>
+  `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(`Hi, I'm interested in the ${panelName} reseller panel.`)}`;
 
 const features = [
   { icon: Tv, title: '22,000+ Live Channels', desc: 'Access over 22,000 live TV channels from around the world in HD, FHD, and 4K quality.' },
@@ -26,26 +33,6 @@ const features = [
   { icon: Clock, title: '99.9% Uptime', desc: 'Enterprise-grade infrastructure guarantees reliable service around the clock.' },
   { icon: Globe, title: 'Global Content', desc: 'Channels from USA, UK, Canada, Europe, Asia, Middle East and Latin America.' },
   { icon: Headphones, title: '24/7 Support', desc: 'Our dedicated support team is available around the clock to help you anytime.' },
-];
-
-const plans = [
-  {
-    name: '1 Month', duration: '30 Days Access', price: '€12',
-    features: ['22,000+ Live Channels', '120,000+ Movies & Series', '15,000+ VOD Channels', 'HD / FHD / 4K Quality', '1 Connection', 'All Devices Supported'],
-  },
-  {
-    name: '3 Months', duration: '90 Days Access', price: '€20',
-    features: ['22,000+ Live Channels', '120,000+ Movies & Series', '15,000+ VOD Channels', 'HD / FHD / 4K Quality', '1 Connection', 'All Devices Supported'],
-  },
-  {
-    name: '6 Months', duration: '180 Days Access', price: '€40',
-    popular: true,
-    features: ['22,000+ Live Channels', '120,000+ Movies & Series', '15,000+ VOD Channels', 'HD / FHD / 4K Quality', '2 Connections', '24/7 Priority Support'],
-  },
-  {
-    name: '12 Months', duration: '365 Days Access', price: '€60',
-    features: ['22,000+ Live Channels', '120,000+ Movies & Series', '15,000+ VOD Channels', 'HD / FHD / 4K Quality', '2 Connections', '24/7 Priority Support'],
-  },
 ];
 
 const movies = [
@@ -103,8 +90,36 @@ const faqItems = [
   { question: 'Is there a refund policy?', answer: 'We stand behind our service quality. If you experience persistent issues that we cannot resolve within the first 24 hours, we offer a full refund. See our Refund Policy for details.' },
 ];
 
+const pricingTabs = {
+  subscriptions: {
+    label: 'Subscriptions',
+    badge: 'Pricing Plans',
+    title: 'Subscription Plans',
+    subtitle: 'Flexible subscription options with no hidden fees. All plans include full access to channels and VOD.',
+    note: 'All plans are activated instantly via WhatsApp. Contact us to get started.',
+  },
+  credits: {
+    label: 'Credits',
+    badge: 'Reseller Credits',
+    title: 'Credit Packages',
+    subtitle: 'Buy credits at wholesale prices. The more you buy, the lower your per-credit cost and the higher your profit margin.',
+    note: 'Each credit creates one subscription. You choose the duration and price for your clients.',
+  },
+  restream: {
+    label: 'Restream',
+    badge: 'Connection Plans',
+    title: 'Restream Packages',
+    subtitle: 'Choose a connection tier for your concurrent viewer base, from smaller platforms to large operations.',
+    note: 'Need a custom configuration? Message us on WhatsApp for a tailored quote.',
+  },
+} as const;
+
+type PricingTabId = keyof typeof pricingTabs;
 
 export default function Home() {
+  const [activePricingTab, setActivePricingTab] = useState<PricingTabId>('subscriptions');
+  const activePricing = pricingTabs[activePricingTab];
+
   useEffect(() => {
     const hash = window.location.hash.slice(1);
     if (hash) {
@@ -178,58 +193,50 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Additional Services */}
-      <section className="py-12 md:py-16 border-y border-white/10 section-atmosphere">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionTitle title="Available Also" />
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-5xl mx-auto">
-            <Link
-              to="/reseller#reseller-packs"
-              className="group relative flex min-h-28 min-w-0 items-center gap-4 overflow-hidden rounded-2xl border border-[#278cff]/35 bg-gradient-to-br from-[#15395d] via-[#111d30] to-[#0b101a] p-4 text-left shadow-[0_10px_30px_rgba(20,136,252,0.10)] transition-all duration-300 hover:-translate-y-1 hover:border-[#55b5ff]/75 hover:shadow-[0_16px_36px_rgba(20,136,252,0.24)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#55b5ff]"
-              aria-label="Browse reseller panels"
-            >
-              <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-[#55b5ff]/30 bg-[#1688f8]/20 text-[#78c7ff] transition-colors group-hover:bg-[#1688f8]/35">
-                <img src="/assets/iptv-panel.svg" alt="" aria-hidden="true" className="h-6 w-6 brightness-0 invert" />
-              </span>
-              <span className="min-w-0 flex-1">
-                <span className="block text-sm font-bold text-white">PANELS</span>
-                <span className="mt-1 block text-xs leading-relaxed text-blue-100/65">Reseller dashboard plans</span>
-              </span>
-            </Link>
-            <Link
-              to="/reseller#reseller-packs"
-              className="group relative flex min-h-28 min-w-0 items-center gap-4 overflow-hidden rounded-2xl border border-[#ffb000]/35 bg-gradient-to-br from-[#493516] via-[#282015] to-[#15110d] p-4 text-left shadow-[0_10px_30px_rgba(255,176,0,0.09)] transition-all duration-300 hover:-translate-y-1 hover:border-[#ffd166]/75 hover:shadow-[0_16px_36px_rgba(255,176,0,0.20)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ffd166]"
-              aria-label="Browse reseller credits"
-            >
-              <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-[#ffd166]/30 bg-[#ffb000]/20 text-[#ffd166] transition-colors group-hover:bg-[#ffb000]/35">
-                <img src="/assets/credits.svg" alt="" aria-hidden="true" className="h-6 w-6 brightness-0 invert" />
-              </span>
-              <span className="min-w-0 flex-1">
-                <span className="block text-sm font-bold text-white">CREDITS</span>
-                <span className="mt-1 block text-xs leading-relaxed text-amber-100/65">Flexible reseller packs</span>
-              </span>
-            </Link>
-            <Link
-              to="/restream#restream-packages"
-              className="group relative flex min-h-28 min-w-0 items-center gap-4 overflow-hidden rounded-2xl border border-[#ff694f]/35 bg-gradient-to-br from-[#51251e] via-[#2b1918] to-[#160f11] p-4 text-left shadow-[0_10px_30px_rgba(255,88,62,0.09)] transition-all duration-300 hover:-translate-y-1 hover:border-[#ff907c]/75 hover:shadow-[0_16px_36px_rgba(255,88,62,0.20)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ff907c]"
-              aria-label="Browse restream connections"
-            >
-              <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-[#ff907c]/30 bg-[#ff583e]/20 text-[#ff9b89] transition-colors group-hover:bg-[#ff583e]/35">
-                <img src="/assets/restream.svg" alt="" aria-hidden="true" className="h-6 w-6 brightness-0 invert" />
-              </span>
-              <span className="min-w-0 flex-1">
-                <span className="block text-sm font-bold text-white">RESTREAM COX</span>
-                <span className="mt-1 block text-xs leading-relaxed text-rose-100/65">Scalable stream connections</span>
-              </span>
-            </Link>
-          </div>
-        </div>
-      </section>
-
       {/* Supported Devices */}
       <section className="relative z-10 -mt-2 pb-8 section-atmosphere">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <CompatibleDevices />
+        </div>
+      </section>
+
+      {/* Reseller Panels */}
+      <section id="panels" className="scroll-mt-24 border-y border-white/10 py-16 md:py-20 section-atmosphere">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <SectionTitle
+            badge="Reseller Panels"
+            title="Panels With Good Price"
+            subtitle="Choose a panel and contact us on WhatsApp for current pricing and access details."
+          />
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 md:gap-5">
+            {resellerPanels.map((panelName) => (
+              <article
+                key={panelName}
+                className="group warm-gradient-border flex min-w-0 flex-col rounded-2xl p-5 shadow-lg shadow-black/20 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-warm-900/10 md:p-6"
+              >
+                <div className="mb-6 flex items-start justify-between gap-3">
+                  <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl border border-warm-400/30 bg-warm-500/10">
+                    <img src="/assets/iptv-panel.svg" alt="" aria-hidden="true" className="h-6 w-6 brightness-0 invert" />
+                  </span>
+                  <span className="rounded-full border border-warm-500/45 bg-gradient-to-r from-warm-400/15 via-warm-500/15 to-warm-600/15 px-3 py-1.5 text-[11px] font-bold uppercase">
+                    <span className="warm-gradient">Reseller Panel</span>
+                  </span>
+                </div>
+                <h3 className="mb-2 break-words text-xl font-bold text-white">{panelName}</h3>
+                <p className="mb-7 text-sm leading-relaxed text-gray-400">
+                  Contact us for current pricing, availability, and panel details.
+                </p>
+                <a
+                  href={getPanelWhatsAppLink(panelName)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-auto inline-flex min-h-11 w-full items-center justify-center rounded-xl border border-warm-500/55 bg-gradient-to-r from-warm-400/10 to-warm-600/10 px-4 py-3 text-sm font-semibold transition-all hover:border-warm-400/90 hover:from-warm-400/20 hover:to-warm-600/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-warm-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[#101522]"
+                >
+                  <span className="warm-gradient">Get Details</span>
+                </a>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -265,19 +272,47 @@ export default function Home() {
       {/* Pricing Plans */}
       <section id="plans" className="py-20 md:py-28 border-y border-white/10 section-atmosphere">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionTitle
-            badge="Pricing Plans"
-            title="Choose Your Perfect Plan"
-            subtitle="Flexible subscription options with no hidden fees. All plans include full access to channels and VOD."
-          />
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 pt-8">
-            {plans.map((plan, i) => (
-              <PlanCard key={i} plan={plan} />
-            ))}
+          <div className="mb-10 flex flex-col items-center gap-8">
+            <div className="inline-grid w-full max-w-xl grid-cols-3 overflow-hidden rounded-xl border border-warm-500/35 bg-black/20" role="tablist" aria-label="Pricing categories">
+              {(Object.keys(pricingTabs) as PricingTabId[]).map((tabId) => {
+                const tab = pricingTabs[tabId];
+                const isActive = activePricingTab === tabId;
+
+                return (
+                  <button
+                    key={tabId}
+                    id={`pricing-tab-${tabId}`}
+                    type="button"
+                    role="tab"
+                    aria-selected={isActive}
+                    aria-controls="home-pricing-panel"
+                    onClick={() => setActivePricingTab(tabId)}
+                    className={`min-h-12 px-1 text-[11px] font-semibold transition-colors sm:px-4 sm:text-sm ${
+                      isActive
+                        ? 'bg-gradient-to-r from-warm-400/10 via-warm-500/10 to-warm-600/10'
+                        : 'text-gray-400 hover:bg-white/[0.04] hover:text-white'
+                    }`}
+                  >
+                    <span className={isActive ? 'warm-gradient' : ''}>{tab.label}</span>
+                  </button>
+                );
+              })}
+            </div>
+            <SectionTitle badge={activePricing.badge} title={activePricing.title} subtitle={activePricing.subtitle} />
           </div>
-          <p className="text-center text-gray-500 text-sm mt-8">
-            All plans are activated instantly via WhatsApp. Contact us to get started.
-          </p>
+
+          <div id="home-pricing-panel" role="tabpanel" aria-labelledby={`pricing-tab-${activePricingTab}`} tabIndex={0}>
+            {activePricingTab === 'restream' ? (
+              <RestreamPlanGrid />
+            ) : (
+              <div className="grid grid-cols-1 gap-6 pt-8 sm:grid-cols-2 lg:grid-cols-4">
+                {(activePricingTab === 'subscriptions' ? subscriptionPlans : resellerCreditPlans).map((plan) => (
+                  <PlanCard key={plan.name} plan={plan} />
+                ))}
+              </div>
+            )}
+            <p className="mt-8 text-center text-sm text-gray-500">{activePricing.note}</p>
+          </div>
         </div>
       </section>
 

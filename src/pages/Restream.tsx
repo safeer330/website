@@ -3,6 +3,7 @@ import {
 } from 'lucide-react';
 import SectionTitle from '@/components/SectionTitle';
 import WhatsAppButton from '@/components/WhatsAppButton';
+import RestreamPlanGrid from '@/components/RestreamPlanGrid';
 import CompatibleDevices from '@/components/CompatibleDevices';
 import FAQ from '@/components/FAQ';
 
@@ -17,26 +18,6 @@ const features = [
   { icon: Network, title: 'Scalable Connections', desc: 'From 100 to 10,000+ connections. Scale your restream operation as your audience grows.' },
   { icon: Radio, title: 'Full Channel Access', desc: 'Restream all 22,000+ channels including premium sports, movies, and international content to your platform.' },
   { icon: Headphones, title: 'Technical Support', desc: 'Our engineering team is available 24/7 to help with integration, troubleshooting, and optimization.' },
-];
-
-const plans = [
-  {
-    name: 'Starter', duration: '100 Connections',
-    features: ['100 Concurrent Connections', 'All 22K+ Channels', 'HLS / MPEG-TS Output', '1080p FHD Quality', 'Basic CDN Distribution', 'Email Support'],
-  },
-  {
-    name: 'Professional', duration: '500 Connections',
-    popular: true,
-    features: ['500 Concurrent Connections', 'All 22K+ Channels', 'HLS / MPEG-TS / RTMP', '4K UHD Quality', 'Global CDN Distribution', 'Priority Support', 'Custom Stream Labels'],
-  },
-  {
-    name: 'Business', duration: '1,000 Connections',
-    features: ['1,000 Concurrent Connections', 'All 22K+ Channels', 'All Protocols Supported', '4K UHD Quality', 'Premium CDN + Failover', '24/7 Dedicated Support', 'Custom Stream Labels', 'API Access'],
-  },
-  {
-    name: 'Enterprise', duration: '5,000+ Connections',
-    features: ['5,000+ Concurrent Connections', 'All 22K+ Channels', 'All Protocols + Custom', '4K UHD Quality', 'Dedicated Infrastructure', 'Dedicated Account Manager', 'SLA Guarantee', 'Full API & Integration'],
-  },
 ];
 
 const specs = [
@@ -132,44 +113,10 @@ export default function Restream() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionTitle
             badge="Connection Plans"
-            title="Restream Packages for Every Scale"
+            title="Restream Packages"
             subtitle='From small platforms to large operations, we have the right package for your concurrent viewer base.'
           />
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 pt-8">
-            {plans.map((plan, i) => (
-              <div
-                key={i}
-                className={`relative rounded-3xl p-6 md:p-8 transition-all duration-300 hover:scale-[1.02] ${
-                  plan.popular
-                    ? 'bg-gradient-to-b from-brand-600/15 to-brand-900/10 border-2 border-brand-500/40 shadow-xl shadow-brand-600/10'
-                    : 'bg-white/[0.03] border border-white/5 hover:border-white/10'
-                }`}
-              >
-                {plan.popular && (
-                  <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
-                    <div className="bg-gradient-to-r from-warm-400 to-warm-600 text-white text-xs font-bold px-4 py-1.5 rounded-full shadow-lg">
-                      RECOMMENDED
-                    </div>
-                  </div>
-                )}
-                <div className="mb-6">
-                  <h4 className="text-white text-lg font-semibold mb-1">{plan.name}</h4>
-                  <p className="text-2xl sm:text-3xl break-words leading-tight font-bold text-white">{plan.duration}</p>
-                </div>
-                <ul className="space-y-3 mb-8">
-                  {plan.features.map((feature, fi) => (
-                    <li key={fi} className="flex items-start gap-3 text-sm">
-                      <div className={`w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 ${plan.popular ? 'bg-brand-500' : 'bg-white/10'}`}>
-                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/></svg>
-                      </div>
-                      <span className="text-gray-300">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-                <WhatsAppButton label="Request This Plan" />
-              </div>
-            ))}
-          </div>
+          <RestreamPlanGrid />
           <p className="text-center text-gray-500 text-sm mt-8">
             Need a custom configuration? Message us on WhatsApp for a tailored quote.
           </p>

@@ -6,6 +6,7 @@ import PlanCard from '@/components/PlanCard';
 import WhatsAppButton from '@/components/WhatsAppButton';
 import CompatibleDevices from '@/components/CompatibleDevices';
 import FAQ from '@/components/FAQ';
+import { resellerCreditPlans as plans } from '@/data/pricingPlans';
 
 const heroImage = 'https://images.pexels.com/photos/5668831/pexels-photo-5668831.jpeg?auto=compress&cs=tinysrgb&h=650&w=940';
 
@@ -18,26 +19,6 @@ const features = [
   { icon: Rocket, title: 'Instant Credit Delivery', desc: 'Credits are added to your panel instantly after purchase. No waiting, no delays.' },
   { icon: Layers, title: 'Flexible Credit System', desc: 'Use credits to create any duration subscription — 1 month, 3 months, 6 months, 12 months. You decide.' },
   { icon: BarChart3, title: 'Analytics & Reporting', desc: 'Track your sales, active subscriptions, and revenue with built-in reporting tools.' },
-];
-
-const plans = [
-  {
-    name: 'Starter Pack', duration: '10 Credits',
-    features: ['10 Subscription Credits', 'Full Reseller Panel Access', 'Create Any Duration Sub', 'Manage Unlimited Clients', 'Standard Support', 'Email Notifications'],
-  },
-  {
-    name: 'Pro Pack', duration: '25 Credits',
-    popular: true,
-    features: ['25 Subscription Credits', 'Full Reseller Panel Access', 'Create Any Duration Sub', 'Manage Unlimited Clients', 'Priority Support', 'Custom Branding Option', 'Lower Per-Credit Cost'],
-  },
-  {
-    name: 'Business Pack', duration: '50 Credits',
-    features: ['50 Subscription Credits', 'Full Reseller Panel Access', 'Create Any Duration Sub', 'Manage Unlimited Clients', 'Priority Support', 'Custom Branding Option', 'Best Per-Credit Rate'],
-  },
-  {
-    name: 'Enterprise Pack', duration: '100 Credits',
-    features: ['100 Subscription Credits', 'Full Reseller Panel Access', 'Create Any Duration Sub', 'Manage Unlimited Clients', 'Dedicated Account Manager', 'Full White-Label Panel', 'Lowest Per-Credit Rate'],
-  },
 ];
 
 const steps = [
@@ -117,7 +98,7 @@ export default function Reseller() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionTitle
             badge="Reseller Packs"
-            title="Choose Your Credit Package"
+            title="Credit Packages"
             subtitle="Buy credits at wholesale prices. The more you buy, the lower your per-credit cost and the higher your profit margin."
           />
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 pt-8">

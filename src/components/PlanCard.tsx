@@ -1,28 +1,21 @@
 import { Check, Crown, Zap } from 'lucide-react';
 import WhatsAppButton from './WhatsAppButton';
 import { WHATSAPP_LINK } from '@/constants';
+import type { PricingPlan } from '@/data/pricingPlans';
 
-interface Plan {
-  name: string;
-  duration: string;
-  price?: string;
-  features: string[];
-  popular?: boolean;
-}
-
-export default function PlanCard({ plan }: { plan: Plan }) {
+export default function PlanCard({ plan }: { plan: PricingPlan }) {
   return (
     <div
       className={`relative rounded-3xl p-6 md:p-8 transition-all duration-300 hover:scale-[1.02] shadow-lg shadow-brand-950/20 ${
         plan.popular
-          ? 'bg-gradient-to-b from-brand-600/15 to-brand-900/10 border-2 border-brand-500/40 shadow-xl shadow-brand-600/10'
-          : 'bg-white/[0.03] border border-white/5 hover:border-white/10'
+          ? 'bg-gradient-to-b from-warm-400/10 to-warm-600/5 border-2 border-warm-500/50 shadow-xl shadow-warm-600/10'
+          : 'bg-white/[0.03] border border-warm-500/20 hover:border-warm-400/50'
       }`}
     >
       {plan.popular && (
-        <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
-          <div className="flex items-center gap-1.5 bg-gradient-to-r from-warm-400 to-warm-600 text-white text-xs font-bold px-4 py-1.5 rounded-full shadow-lg">
-            <Crown className="w-3.5 h-3.5" /> MOST POPULAR
+        <div className="absolute -top-3.5 left-1/2 z-20 -translate-x-1/2">
+          <div className="flex items-center gap-1.5 rounded-full border border-warm-500/55 bg-gradient-to-r from-[#211b10] via-[#1b1514] to-[#211315] px-4 py-1.5 text-xs font-bold shadow-lg shadow-warm-900/20">
+            <Crown className="h-3.5 w-3.5 text-warm-400" /> <span className="warm-gradient">MOST POPULAR</span>
           </div>
         </div>
       )}
@@ -54,15 +47,15 @@ export default function PlanCard({ plan }: { plan: Plan }) {
       </ul>
 
       {plan.popular ? (
-        <WhatsAppButton label="Get This Plan" />
+        <WhatsAppButton label="Get This Plan" variant="warm" />
       ) : (
         <a
           href={WHATSAPP_LINK}
           target="_blank"
           rel="noopener noreferrer"
-          className="w-full inline-flex items-center justify-center gap-2 bg-white/5 hover:bg-white/10 text-white font-semibold py-3.5 rounded-xl transition-all duration-300 border border-white/10 hover:border-white/20"
+          className="w-full inline-flex items-center justify-center gap-2 rounded-xl border border-warm-500/50 bg-gradient-to-r from-warm-400/10 to-warm-600/10 py-3.5 font-semibold transition-all duration-300 hover:border-warm-400/90 hover:from-warm-400/20 hover:to-warm-600/20"
         >
-          <Zap className="w-4 h-4 text-brand-400" /> Choose Plan
+          <Zap className="h-4 w-4 text-warm-400" /> <span className="warm-gradient">Choose Plan</span>
         </a>
       )}
     </div>
