@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import {
-  Tv, Zap, ShieldCheck, Clock, Globe, Headphones, Play, Star, Film, Trophy, Radio, Coins, PanelsTopLeft, Network, ArrowUpRight,
+  Tv, Zap, ShieldCheck, Clock, Globe, Headphones, Play, Star, Film, Trophy, Radio,
 } from 'lucide-react';
 import SectionTitle from '@/components/SectionTitle';
 import PlanCard from '@/components/PlanCard';
@@ -189,13 +189,12 @@ export default function Home() {
               aria-label="Browse reseller panels"
             >
               <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-[#55b5ff]/30 bg-[#1688f8]/20 text-[#78c7ff] transition-colors group-hover:bg-[#1688f8]/35">
-                <PanelsTopLeft className="h-6 w-6" />
+                <img src="/assets/iptv-panel.svg" alt="" aria-hidden="true" className="h-6 w-6 brightness-0 invert" />
               </span>
               <span className="min-w-0 flex-1">
                 <span className="block text-sm font-bold text-white">PANELS</span>
                 <span className="mt-1 block text-xs leading-relaxed text-blue-100/65">Reseller dashboard plans</span>
               </span>
-              <ArrowUpRight className="h-4 w-4 shrink-0 text-[#78c7ff] transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
             </Link>
             <Link
               to="/reseller#reseller-packs"
@@ -203,13 +202,12 @@ export default function Home() {
               aria-label="Browse reseller credits"
             >
               <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-[#ffd166]/30 bg-[#ffb000]/20 text-[#ffd166] transition-colors group-hover:bg-[#ffb000]/35">
-                <Coins className="h-6 w-6" />
+                <img src="/assets/credits.svg" alt="" aria-hidden="true" className="h-6 w-6 brightness-0 invert" />
               </span>
               <span className="min-w-0 flex-1">
                 <span className="block text-sm font-bold text-white">CREDITS</span>
                 <span className="mt-1 block text-xs leading-relaxed text-amber-100/65">Flexible reseller packs</span>
               </span>
-              <ArrowUpRight className="h-4 w-4 shrink-0 text-[#ffd166] transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
             </Link>
             <Link
               to="/restream#restream-packages"
@@ -217,13 +215,12 @@ export default function Home() {
               aria-label="Browse restream connections"
             >
               <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-[#ff907c]/30 bg-[#ff583e]/20 text-[#ff9b89] transition-colors group-hover:bg-[#ff583e]/35">
-                <Network className="h-6 w-6" />
+                <img src="/assets/restream.svg" alt="" aria-hidden="true" className="h-6 w-6 brightness-0 invert" />
               </span>
               <span className="min-w-0 flex-1">
                 <span className="block text-sm font-bold text-white">RESTREAM COX</span>
                 <span className="mt-1 block text-xs leading-relaxed text-rose-100/65">Scalable stream connections</span>
               </span>
-              <ArrowUpRight className="h-4 w-4 shrink-0 text-[#ff9b89] transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
             </Link>
           </div>
         </div>
