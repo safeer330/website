@@ -120,8 +120,8 @@ export default function Home() {
       <section className="relative min-h-screen flex items-center pt-24 pb-16 overflow-hidden">
         <div className="absolute inset-0 bg-[#080b14]" />
         <div className="absolute inset-x-0 top-0 h-[76vh] min-h-[440px] max-h-[680px] overflow-hidden lg:hidden">
-          <img src={heroImage} alt="" aria-hidden="true" className="h-full w-full object-cover object-[center_38%] opacity-50" />
-          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(8,11,20,0.12)_0%,rgba(8,11,20,0.38)_38%,rgba(8,11,20,0.78)_70%,#080b14_100%)]" />
+          <img src={heroImage} alt="" aria-hidden="true" className="h-full w-full object-cover object-[center_38%] opacity-30" />
+          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(8,11,20,0.40)_0%,rgba(8,11,20,0.60)_38%,rgba(8,11,20,0.86)_70%,#080b14_100%)]" />
         </div>
         <div className="absolute inset-y-0 right-0 hidden w-1/2 overflow-hidden lg:block">
           <img src={heroImage} alt="Large-screen television in a modern living room" className="h-full w-full object-cover object-center" />
@@ -146,7 +146,7 @@ export default function Home() {
                 </span>
               </h1>
 
-              <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-2xl leading-relaxed animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
+              <p className="text-base md:text-xl text-gray-300 mb-8 max-w-2xl leading-relaxed animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
                 Enjoy 22,000+ live channels, 120,000+ movies and series, and 15,000+ VOD channels in stunning 4K, FHD and HD quality.
               </p>
 
