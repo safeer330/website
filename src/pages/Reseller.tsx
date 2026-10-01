@@ -81,7 +81,7 @@ export default function Reseller() {
             </h1>
 
             <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-2xl leading-relaxed">
-              Become a StreamX reseller and build a profitable IPTV business with our powerful
+              Become a Nice IPTV reseller and build a profitable IPTV business with our powerful
               reseller panel. Buy credits at wholesale, sell at your own prices, keep the profit.
             </p>
 
@@ -106,14 +106,14 @@ export default function Reseller() {
       </section>
 
       {/* Supported Devices */}
-      <section className="relative z-10 -mt-2 pb-8 bg-[#080b14]">
+      <section className="relative z-10 -mt-2 pb-8 section-atmosphere">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <CompatibleDevices />
         </div>
       </section>
 
       {/* Plans */}
-      <section className="py-20 md:py-28">
+      <section id="reseller-packs" className="scroll-mt-24 py-20 md:py-28 section-atmosphere">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionTitle
             badge="Reseller Packs"
@@ -132,7 +132,7 @@ export default function Reseller() {
       </section>
 
       {/* Features */}
-      <section className="py-20 md:py-28">
+      <section className="py-20 md:py-28 section-atmosphere">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionTitle
             badge="Reseller Benefits"
@@ -157,7 +157,7 @@ export default function Reseller() {
       </section>
 
       {/* How It Works */}
-      <section className="py-20 border-y border-white/5 bg-gradient-to-b from-[#0d0d15] to-[#0a0a0f]">
+      <section className="py-20 border-y border-white/5 section-atmosphere">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionTitle
             badge="How It Works"
@@ -182,7 +182,7 @@ export default function Reseller() {
       </section>
 
       {/* FAQ */}
-      <section className="py-20 border-t border-white/5 bg-gradient-to-b from-[#0a0a0f] to-[#0d0d15]">
+      <section className="py-20 border-t border-white/5 section-atmosphere">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionTitle
             badge="Reseller FAQ"
@@ -194,13 +194,13 @@ export default function Reseller() {
       </section>
 
       {/* CTA */}
-      <section className="py-20">
+      <section className="py-20 section-atmosphere">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="warm-gradient text-3xl md:text-4xl font-bold mb-4">
             Ready to Become a Reseller?
           </h2>
           <p className="text-gray-400 text-lg mb-8 max-w-2xl mx-auto">
-            Join hundreds of successful resellers earning with StreamX. Get your panel set up today.
+            Join hundreds of successful resellers earning with Nice IPTV. Get your panel set up today.
           </p>
           <WhatsAppButton label="Get Started on WhatsApp" />
         </div>

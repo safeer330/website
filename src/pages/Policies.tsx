@@ -3,7 +3,7 @@ export default function Policies() {
     <main className="pt-28 pb-20">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <header className="mb-14">
-          <p className="text-brand-300 text-sm font-semibold uppercase tracking-wider mb-3">StreamX</p>
+          <p className="text-brand-300 text-sm font-semibold uppercase tracking-wider mb-3">Nice IPTV</p>
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">Policies &amp; Terms</h1>
           <p className="text-gray-400 leading-relaxed">
             Simple information about your privacy, use of our services, and refund requests.
@@ -32,8 +32,8 @@ export default function Policies() {
               </p>
               <p>
                 For a privacy question or request, contact us at{' '}
-                <a className="text-brand-300 hover:text-brand-200" href="mailto:support@streamx.com">
-                  support@streamx.com
+                <a className="text-brand-300 hover:text-brand-200" href="mailto:support@niceiptv.com">
+                  support@niceiptv.com
                 </a>.
               </p>
             </div>
@@ -43,7 +43,7 @@ export default function Policies() {
             <h2 className="text-2xl md:text-3xl font-bold text-white mb-5">Terms of Service</h2>
             <div className="space-y-4 text-gray-300 leading-relaxed">
               <p>
-                By ordering or using a StreamX service, you agree to use it lawfully and follow the
+                By ordering or using a Nice IPTV service, you agree to use it lawfully and follow the
                 terms that apply to your selected subscription or package.
               </p>
               <p>
@@ -60,8 +60,8 @@ export default function Policies() {
               <p>
                 We may update these terms when our services or legal requirements change. Continued
                 use after an update means you accept the revised terms. For questions, contact{' '}
-                <a className="text-brand-300 hover:text-brand-200" href="mailto:support@streamx.com">
-                  support@streamx.com
+                <a className="text-brand-300 hover:text-brand-200" href="mailto:support@niceiptv.com">
+                  support@niceiptv.com
                 </a>.
               </p>
             </div>
@@ -77,8 +77,8 @@ export default function Policies() {
               </p>
               <p>
                 Contact us within that 24-hour period at{' '}
-                <a className="text-brand-300 hover:text-brand-200" href="mailto:support@streamx.com">
-                  support@streamx.com
+                <a className="text-brand-300 hover:text-brand-200" href="mailto:support@niceiptv.com">
+                  support@niceiptv.com
                 </a>{' '}
                 or through WhatsApp. Include your order details and a description of the issue so our
                 team can troubleshoot and review your request.

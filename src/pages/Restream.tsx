@@ -107,7 +107,7 @@ export default function Restream() {
       </section>
 
       {/* Supported Devices */}
-      <section className="relative z-10 -mt-2 pb-8 bg-[#080b14]">
+      <section className="relative z-10 -mt-2 pb-8 section-atmosphere">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <CompatibleDevices />
         </div>
@@ -128,7 +128,7 @@ export default function Restream() {
       </section>
 
       {/* Plans */}
-      <section className="py-20 md:py-28 border-y border-white/5 bg-gradient-to-b from-[#0d0d15] to-[#0a0a0f]">
+      <section id="restream-packages" className="scroll-mt-24 py-20 md:py-28 border-y border-white/5 section-atmosphere">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionTitle
             badge="Connection Plans"
@@ -177,7 +177,7 @@ export default function Restream() {
       </section>
 
       {/* Features */}
-      <section className="py-20 md:py-28">
+      <section className="py-20 md:py-28 section-atmosphere">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionTitle
             badge="Restream Features"
@@ -202,7 +202,7 @@ export default function Restream() {
       </section>
 
       {/* FAQ */}
-      <section className="py-20 md:py-28">
+      <section className="py-20 md:py-28 section-atmosphere">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionTitle
             badge="Restream FAQ"
@@ -214,7 +214,7 @@ export default function Restream() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 border-t border-white/5 bg-gradient-to-b from-[#0a0a0f] to-[#0d0d15]">
+      <section className="py-20 border-t border-white/5 section-atmosphere">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="warm-gradient text-3xl md:text-4xl font-bold mb-4">
             Ready to Scale Your Streaming Platform?

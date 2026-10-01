@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import {
-  Tv, Zap, ShieldCheck, Clock, Globe, Headphones, Play, Star, Film, Trophy, Radio,
+  Tv, Zap, ShieldCheck, Clock, Globe, Headphones, Play, Star, Film, Trophy, Radio, Coins, PanelsTopLeft, Network, ArrowUpRight,
 } from 'lucide-react';
 import SectionTitle from '@/components/SectionTitle';
 import PlanCard from '@/components/PlanCard';
@@ -61,7 +62,7 @@ const movies = [
 const testimonials = [
   {
     name: 'James Carter', role: 'Subscriber — 2 Years', rating: 5,
-    text: 'Been using StreamX for over two years now. The channel selection is insane and the quality never drops. Best IPTV I have tried, hands down.',
+    text: 'Been using Nice IPTV for over two years now. The channel selection is insane and the quality never drops. Best IPTV I have tried, hands down.',
     avatar: 'https://images.pexels.com/photos/3228887/pexels-photo-3228887.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
   },
   {
@@ -81,7 +82,7 @@ const testimonials = [
   },
   {
     name: 'Michael Brown', role: 'Subscriber — 3 Years', rating: 5,
-    text: 'Three years and counting. The reliability is unmatched. I have recommended StreamX to all my friends and family. Worth every penny.',
+    text: 'Three years and counting. The reliability is unmatched. I have recommended Nice IPTV to all my friends and family. Worth every penny.',
     avatar: 'https://images.pexels.com/photos/28589292/pexels-photo-28589292.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
   },
   {
@@ -118,13 +119,17 @@ export default function Home() {
       {/* Hero */}
       <section className="relative min-h-screen flex items-center pt-24 pb-16 overflow-hidden">
         <div className="absolute inset-0 bg-[#080b14]" />
+        <div className="absolute inset-x-0 top-0 h-[76vh] min-h-[440px] max-h-[680px] overflow-hidden lg:hidden">
+          <img src={heroImage} alt="" aria-hidden="true" className="h-full w-full object-cover object-[center_38%] opacity-50" />
+          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(8,11,20,0.12)_0%,rgba(8,11,20,0.38)_38%,rgba(8,11,20,0.78)_70%,#080b14_100%)]" />
+        </div>
         <div className="absolute inset-y-0 right-0 hidden w-1/2 overflow-hidden lg:block">
           <img src={heroImage} alt="Large-screen television in a modern living room" className="h-full w-full object-cover object-center" />
           <div className="absolute inset-0 bg-[linear-gradient(90deg,#080b14_0%,rgba(8,11,20,0.58)_22%,rgba(8,11,20,0.05)_72%),linear-gradient(0deg,#080b14_0%,transparent_38%)]" />
         </div>
-        <div className="absolute -top-40 right-[-10%] w-[680px] h-[680px] rounded-full bg-[#1488fc]/20 blur-[130px]" />
-        <div className="absolute bottom-[-20%] left-[-10%] w-[520px] h-[520px] rounded-full bg-[#1488fc]/10 blur-[120px]" />
-        <div className="absolute inset-0 bg-[linear-gradient(110deg,#080b14_0%,#0b1426_48%,#0a0d17_100%)] opacity-80" />
+        <div className="absolute -top-40 right-[-10%] hidden h-[680px] w-[680px] rounded-full bg-[#1488fc]/20 blur-[130px] lg:block" />
+        <div className="absolute bottom-[-20%] left-[-10%] hidden h-[520px] w-[520px] rounded-full bg-[#1488fc]/10 blur-[120px] lg:block" />
+        <div className="absolute inset-0 hidden bg-[linear-gradient(110deg,#080b14_0%,#0b1426_48%,#0a0d17_100%)] opacity-80 lg:block" />
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div className="grid grid-cols-1 lg:grid-cols-[1.05fr_0.95fr] gap-12 xl:gap-20 items-center">
@@ -134,7 +139,7 @@ export default function Home() {
                 <span className="text-brand-200 text-sm font-medium">Premium IPTV · 99.9% Uptime</span>
               </div>
 
-              <h1 className="text-4xl md:text-6xl lg:text-[4.4rem] font-bold text-white tracking-tight leading-[1.08] mb-6 animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
+              <h1 className="text-[2.5rem] md:text-6xl lg:text-[4.4rem] font-bold text-white tracking-tight leading-[1.08] mb-6 animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
                 Best IPTV Subscription
                 <span className="block bg-gradient-to-r from-[#ffb000] via-[#ff7a18] to-[#ff3d2e] bg-clip-text text-transparent">
                   Provider for Your Home
@@ -163,23 +168,6 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="relative w-full animate-fade-in-up lg:hidden" style={{ animationDelay: '0.25s' }}>
-              <div className="relative overflow-hidden rounded-2xl">
-                <div className="relative aspect-[16/10] overflow-hidden rounded-2xl">
-                  <img src={heroImage} alt="Home television showing live channels, movies, and sports through the IPTV subscription" className="w-full h-full object-cover" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#070b14]/85 via-transparent to-[#1488fc]/10" />
-                  <div className="absolute left-5 right-5 bottom-5 flex items-center justify-between rounded-xl border border-white/15 bg-black/35 backdrop-blur-md px-4 py-3">
-                    <div>
-                      <p className="text-white font-semibold text-sm">All Channels. All Devices.</p>
-                      <p className="text-brand-200 text-xs mt-1">22,000+ channels in 4K, FHD & HD.</p>
-                    </div>
-                    <div className="flex items-center gap-1.5 text-xs text-green-300">
-                      <span className="w-2 h-2 rounded-full bg-green-400" /> Streaming live
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
 
@@ -190,15 +178,66 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Additional Services */}
+      <section className="py-12 md:py-16 border-y border-white/10 section-atmosphere">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <SectionTitle title="Available Also" />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-5xl mx-auto">
+            <Link
+              to="/reseller#reseller-packs"
+              className="group relative flex min-h-28 min-w-0 items-center gap-4 overflow-hidden rounded-2xl border border-[#278cff]/35 bg-gradient-to-br from-[#15395d] via-[#111d30] to-[#0b101a] p-4 text-left shadow-[0_10px_30px_rgba(20,136,252,0.10)] transition-all duration-300 hover:-translate-y-1 hover:border-[#55b5ff]/75 hover:shadow-[0_16px_36px_rgba(20,136,252,0.24)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#55b5ff]"
+              aria-label="Browse reseller panels"
+            >
+              <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-[#55b5ff]/30 bg-[#1688f8]/20 text-[#78c7ff] transition-colors group-hover:bg-[#1688f8]/35">
+                <PanelsTopLeft className="h-6 w-6" />
+              </span>
+              <span className="min-w-0 flex-1">
+                <span className="block text-sm font-bold text-white">PANELS</span>
+                <span className="mt-1 block text-xs leading-relaxed text-blue-100/65">Reseller dashboard plans</span>
+              </span>
+              <ArrowUpRight className="h-4 w-4 shrink-0 text-[#78c7ff] transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+            </Link>
+            <Link
+              to="/reseller#reseller-packs"
+              className="group relative flex min-h-28 min-w-0 items-center gap-4 overflow-hidden rounded-2xl border border-[#ffb000]/35 bg-gradient-to-br from-[#493516] via-[#282015] to-[#15110d] p-4 text-left shadow-[0_10px_30px_rgba(255,176,0,0.09)] transition-all duration-300 hover:-translate-y-1 hover:border-[#ffd166]/75 hover:shadow-[0_16px_36px_rgba(255,176,0,0.20)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ffd166]"
+              aria-label="Browse reseller credits"
+            >
+              <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-[#ffd166]/30 bg-[#ffb000]/20 text-[#ffd166] transition-colors group-hover:bg-[#ffb000]/35">
+                <Coins className="h-6 w-6" />
+              </span>
+              <span className="min-w-0 flex-1">
+                <span className="block text-sm font-bold text-white">CREDITS</span>
+                <span className="mt-1 block text-xs leading-relaxed text-amber-100/65">Flexible reseller packs</span>
+              </span>
+              <ArrowUpRight className="h-4 w-4 shrink-0 text-[#ffd166] transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+            </Link>
+            <Link
+              to="/restream#restream-packages"
+              className="group relative flex min-h-28 min-w-0 items-center gap-4 overflow-hidden rounded-2xl border border-[#ff694f]/35 bg-gradient-to-br from-[#51251e] via-[#2b1918] to-[#160f11] p-4 text-left shadow-[0_10px_30px_rgba(255,88,62,0.09)] transition-all duration-300 hover:-translate-y-1 hover:border-[#ff907c]/75 hover:shadow-[0_16px_36px_rgba(255,88,62,0.20)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ff907c]"
+              aria-label="Browse restream connections"
+            >
+              <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-[#ff907c]/30 bg-[#ff583e]/20 text-[#ff9b89] transition-colors group-hover:bg-[#ff583e]/35">
+                <Network className="h-6 w-6" />
+              </span>
+              <span className="min-w-0 flex-1">
+                <span className="block text-sm font-bold text-white">RESTREAM COX</span>
+                <span className="mt-1 block text-xs leading-relaxed text-rose-100/65">Scalable stream connections</span>
+              </span>
+              <ArrowUpRight className="h-4 w-4 shrink-0 text-[#ff9b89] transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* Supported Devices */}
-      <section className="relative z-10 -mt-2 pb-8 bg-[#080b14]">
+      <section className="relative z-10 -mt-2 pb-8 section-atmosphere">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <CompatibleDevices />
         </div>
       </section>
 
       {/* Content Categories Banner */}
-      <section className="py-16 border-y border-white/5 bg-gradient-to-r from-[#0d0d15] via-[#10101a] to-[#0d0d15]">
+      <section className="py-16 border-y border-white/5 section-atmosphere">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
@@ -227,7 +266,7 @@ export default function Home() {
       </section>
 
       {/* Pricing Plans */}
-      <section id="plans" className="py-20 md:py-28 border-y border-white/5 bg-gradient-to-b from-[#0d0d15] to-[#0a0a0f]">
+      <section id="plans" className="py-20 md:py-28 border-y border-white/10 section-atmosphere">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionTitle
             badge="Pricing Plans"
@@ -246,7 +285,7 @@ export default function Home() {
       </section>
 
       {/* Features */}
-      <section className="py-20 md:py-28">
+      <section className="py-20 md:py-28 section-atmosphere">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionTitle
             badge="Why Choose Us"
@@ -271,7 +310,7 @@ export default function Home() {
       </section>
 
       {/* Showcase Section */}
-      <section className="py-20 border-y border-white/5 bg-gradient-to-b from-[#0d0d15] to-[#0a0a0f]">
+      <section className="py-20 border-y border-white/5 section-atmosphere">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="relative">
@@ -315,7 +354,7 @@ export default function Home() {
       </section>
 
       {/* Sports Slider */}
-      <section className="py-20 md:py-28">
+      <section className="py-20 md:py-28 section-atmosphere">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionTitle
             badge="All Sports Channels"
@@ -327,7 +366,7 @@ export default function Home() {
       </section>
 
       {/* Movie Slider */}
-      <section className="py-20 md:py-28 border-y border-white/5 bg-gradient-to-b from-[#0d0d15] to-[#0a0a0f]">
+      <section className="py-20 md:py-28 border-y border-white/5 section-atmosphere">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionTitle
             badge="Trending Now"
@@ -339,7 +378,7 @@ export default function Home() {
       </section>
 
       {/* Testimonials */}
-      <section className="py-20 md:py-28 border-y border-white/5 bg-gradient-to-b from-[#0d0d15] to-[#0a0a0f]">
+      <section className="py-20 md:py-28 border-y border-white/5 section-atmosphere">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionTitle
             badge="Testimonials"
@@ -351,7 +390,7 @@ export default function Home() {
       </section>
 
       {/* FAQ */}
-      <section id="faq" className="py-20 md:py-28">
+      <section id="faq" className="py-20 md:py-28 section-atmosphere">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionTitle
             badge="FAQ"
@@ -363,7 +402,7 @@ export default function Home() {
       </section>
 
       {/* Contact */}
-      <section id="contact" className="py-20 md:py-28 border-t border-white/5 bg-gradient-to-b from-[#0a0a0f] to-[#0d0d15]">
+      <section id="contact" className="py-20 md:py-28 border-t border-white/5 section-atmosphere">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionTitle
             badge="Contact Us"

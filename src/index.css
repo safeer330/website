@@ -32,6 +32,13 @@
   color: transparent;
 }
 
+.section-atmosphere {
+  background-color: #0b1019;
+  background-image:
+    radial-gradient(ellipse at top, rgba(255, 169, 10, 0.1), transparent 58%),
+    linear-gradient(115deg, #0b1320 0%, #11121b 52%, #190e0b 100%);
+}
+
 html {
   scroll-behavior: smooth;
 }

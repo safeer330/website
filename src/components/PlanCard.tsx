@@ -1,5 +1,6 @@
 import { Check, Crown, Zap } from 'lucide-react';
 import WhatsAppButton from './WhatsAppButton';
+import { WHATSAPP_LINK } from '@/constants';
 
 interface Plan {
   name: string;
@@ -56,7 +57,7 @@ export default function PlanCard({ plan }: { plan: Plan }) {
         <WhatsAppButton label="Get This Plan" />
       ) : (
         <a
-          href="https://wa.me/1234567890?text=Hi%2C%20I'm%20interested%20in%20your%20IPTV%20services"
+          href={WHATSAPP_LINK}
           target="_blank"
           rel="noopener noreferrer"
           className="w-full inline-flex items-center justify-center gap-2 bg-white/5 hover:bg-white/10 text-white font-semibold py-3.5 rounded-xl transition-all duration-300 border border-white/10 hover:border-white/20"

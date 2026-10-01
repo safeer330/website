@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
-import { Menu, X, Tv } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 
 const navItems = [
   { label: 'Home', path: '/' },
@@ -40,7 +40,7 @@ export default function Navbar() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
+        scrolled || open
           ? 'bg-[#0a0a0f]/95 backdrop-blur-lg border-b border-brand-500/20 shadow-lg shadow-brand-500/5'
           : 'bg-transparent'
       }`}
@@ -48,15 +48,7 @@ export default function Navbar() {
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
           <Link to="/" className="flex items-center gap-2 group">
-            <div className="relative">
-              <div className="absolute inset-0 bg-brand-500 blur-lg opacity-50 group-hover:opacity-80 transition-opacity" />
-              <div className="relative bg-gradient-to-br from-brand-400 to-brand-600 p-2 rounded-xl">
-                <Tv className="w-6 h-6 text-white" />
-              </div>
-            </div>
-            <span className="text-xl font-bold text-white tracking-tight">
-              Stream<span className="text-brand-400">X</span>
-            </span>
+            <img src="/assets/logo.svg" alt="Nice IPTV" className="h-10 w-auto transition-opacity group-hover:opacity-80" />
           </Link>
 
           <div className="hidden md:flex items-center gap-1">
@@ -83,13 +75,14 @@ export default function Navbar() {
             className="md:hidden text-white p-2"
             onClick={() => setOpen(!open)}
             aria-label="Toggle menu"
+            aria-expanded={open}
           >
             {open ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
 
         {open && (
-          <div className="md:hidden pb-4 space-y-1">
+          <div className="md:hidden mx-1 mb-3 space-y-1 rounded-xl border border-white/10 bg-[#10101a]/98 p-3 shadow-xl shadow-black/30 backdrop-blur-xl">
             {navItems.map((item) => (
               <NavLink
                 key={item.path}

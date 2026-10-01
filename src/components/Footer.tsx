@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Tv, Mail, MessageCircle, MapPin, Facebook, Twitter, Instagram, Youtube } from 'lucide-react';
+import { Mail, MessageCircle, MapPin, Facebook, Twitter, Instagram, Youtube } from 'lucide-react';
 import { WHATSAPP_LINK } from '@/constants';
 
 export default function Footer() {
@@ -9,12 +9,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="space-y-4">
             <Link to="/" className="flex items-center gap-2">
-              <div className="bg-gradient-to-br from-brand-400 to-brand-600 p-2 rounded-xl">
-                <Tv className="w-5 h-5 text-white" />
-              </div>
-              <span className="text-xl font-bold text-white">
-                Stream<span className="text-brand-400">X</span>
-              </span>
+              <img src="/assets/logo.svg" alt="Nice IPTV" className="h-10 w-auto" />
             </Link>
             <p className="text-gray-400 text-sm leading-relaxed">
               Premium IPTV service with over 22,000 live channels, 120,000+ movies and TV shows, and 15,000+ VOD channels in 4K/FHD/HD quality.
@@ -71,7 +66,7 @@ export default function Footer() {
             <ul className="space-y-3">
               <li className="flex items-center gap-3 text-gray-400 text-sm">
                 <Mail className="w-4 h-4 text-brand-400" />
-                support@streamx.com
+                support@niceiptv.com
               </li>
               <li className="flex items-center gap-3 text-gray-400 text-sm">
                 <MessageCircle className="w-4 h-4 text-brand-400" />
@@ -89,7 +84,7 @@ export default function Footer() {
 
         <div className="border-t border-white/5 mt-10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-gray-500 text-sm">
-            &copy; {new Date().getFullYear()} StreamX IPTV. All rights reserved.
+            &copy; {new Date().getFullYear()} Nice IPTV. All rights reserved.
           </p>
           <div className="flex gap-6">
             <Link to="/policies#privacy-policy" className="text-gray-500 hover:text-brand-400 text-sm transition-colors">Privacy Policy</Link>

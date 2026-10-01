@@ -34,7 +34,7 @@ export default function Contact() {
             </div>
             <div>
               <p className="text-gray-300 font-medium text-sm">Email</p>
-              <p className="text-gray-500 text-sm">support@streamx.com</p>
+              <p className="text-gray-500 text-sm">support@niceiptv.com</p>
             </div>
           </div>
           <div className="flex items-start gap-4 p-4 rounded-xl bg-white/[0.03] border border-white/5">
