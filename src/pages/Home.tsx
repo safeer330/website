@@ -5,8 +5,7 @@ import {
 } from 'lucide-react';
 import SectionTitle from '@/components/SectionTitle';
 import PlanCard from '@/components/PlanCard';
-import MovieSlider from '@/components/MovieSlider';
-import SportsSlider from '@/components/SportsSlider';
+import ChannelCategories from '@/components/ChannelCategories';
 import Testimonials from '@/components/Testimonials';
 import CompatibleDevices from '@/components/CompatibleDevices';
 import WhatsAppButton from '@/components/WhatsAppButton';
@@ -33,17 +32,6 @@ const features = [
   { icon: Clock, title: '99.9% Uptime', desc: 'Enterprise-grade infrastructure guarantees reliable service around the clock.' },
   { icon: Globe, title: 'Global Content', desc: 'Channels from USA, UK, Canada, Europe, Asia, Middle East and Latin America.' },
   { icon: Headphones, title: '24/7 Support', desc: 'Our dedicated support team is available around the clock to help you anytime.' },
-];
-
-const movies = [
-  { title: 'Midnight Protocol', category: 'Action', rating: '8.5', image: 'https://images.pexels.com/photos/35982145/pexels-photo-35982145.jpeg?auto=compress&cs=tinysrgb&h=650&w=940' },
-  { title: 'Shadow Strike', category: 'Thriller', rating: '8.2', image: 'https://images.pexels.com/photos/23384428/pexels-photo-23384428.jpeg?auto=compress&cs=tinysrgb&h=650&w=940' },
-  { title: 'Final Whistle', category: 'Sports', rating: '9.0', image: 'https://images.pexels.com/photos/32190714/pexels-photo-32190714.jpeg?auto=compress&cs=tinysrgb&h=650&w=940' },
-  { title: 'Fire Storm', category: 'Action', rating: '7.8', image: 'https://images.pexels.com/photos/35982176/pexels-photo-35982176.jpeg?auto=compress&cs=tinysrgb&h=650&w=940' },
-  { title: 'Night Games', category: 'Drama', rating: '8.7', image: 'https://images.pexels.com/photos/30651230/pexels-photo-30651230.jpeg?auto=compress&cs=tinysrgb&h=650&w=940' },
-  { title: 'Battle Ground', category: 'War', rating: '8.9', image: 'https://images.pexels.com/photos/11953753/pexels-photo-11953753.jpeg?auto=compress&cs=tinysrgb&h=650&w=940' },
-  { title: 'Crimson Sky', category: 'Action', rating: '8.1', image: 'https://images.pexels.com/photos/35982153/pexels-photo-35982153.jpeg?auto=compress&cs=tinysrgb&h=650&w=940' },
-  { title: 'The Stadium', category: 'Sports', rating: '9.2', image: 'https://images.pexels.com/photos/30726640/pexels-photo-30726640.jpeg?auto=compress&cs=tinysrgb&h=650&w=940' },
 ];
 
 const testimonials = [
@@ -77,6 +65,39 @@ const testimonials = [
     text: 'The international channel package is perfect for my family. We get content from three different countries all in one subscription.',
     avatar: 'https://images.pexels.com/photos/13010849/pexels-photo-13010849.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
   },
+];
+
+const coverageCountries = [
+  { code: 'US', name: 'USA' },
+  { code: 'GB', name: 'United Kingdom' },
+  { code: 'CA', name: 'Canada' },
+  { code: 'DE', name: 'Germany' },
+  { code: 'FR', name: 'France' },
+  { code: 'IT', name: 'Italy' },
+  { code: 'ES', name: 'Spain' },
+  { code: 'NL', name: 'Netherlands' },
+  { code: 'SE', name: 'Sweden' },
+  { code: 'AU', name: 'Australia' },
+  { code: 'IE', name: 'Ireland' },
+  { code: 'BE', name: 'Belgium' },
+  { code: 'CH', name: 'Switzerland' },
+  { code: 'AT', name: 'Austria' },
+  { code: 'NO', name: 'Norway' },
+  { code: 'DK', name: 'Denmark' },
+  { code: 'FI', name: 'Finland' },
+  { code: 'PT', name: 'Portugal' },
+  { code: 'GR', name: 'Greece' },
+  { code: 'PL', name: 'Poland' },
+  { code: 'AE', name: 'UAE' },
+  { code: 'SA', name: 'Saudi Arabia' },
+  { code: 'QA', name: 'Qatar' },
+  { code: 'KW', name: 'Kuwait' },
+  { code: 'BR', name: 'Brazil' },
+  { code: 'MX', name: 'Mexico' },
+  { code: 'AR', name: 'Argentina' },
+  { code: 'IN', name: 'India' },
+  { code: 'ZA', name: 'South Africa' },
+  { code: 'NG', name: 'Nigeria' },
 ];
 
 const faqItems = [
@@ -154,10 +175,10 @@ export default function Home() {
                 <span className="text-brand-200 text-sm font-medium">Premium IPTV · 99.9% Uptime</span>
               </div>
 
-              <h1 className="text-[2.5rem] md:text-6xl lg:text-[4.4rem] font-bold text-white tracking-tight leading-[1.08] mb-6 animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
-                Best IPTV Subscription
+              <h1 className="text-[2rem] md:text-5xl lg:text-[3.25rem] font-bold text-white tracking-tight leading-[1.12] mb-6 animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
+                Best IPTV Provider
                 <span className="block bg-gradient-to-r from-[#ffb000] via-[#ff7a18] to-[#ff3d2e] bg-clip-text text-transparent">
-                  Provider for Your Home
+                  Subscriptions, Credits, Panels &amp; Restream
                 </span>
               </h1>
 
@@ -385,27 +406,15 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Sports Slider */}
-      <section className="py-20 md:py-28 section-atmosphere">
+      {/* Channel Categories */}
+      <section className="py-20 md:py-28 border-b border-white/5 section-atmosphere">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionTitle
-            badge="All Sports Channels"
-            title="Never Miss a Game — All Sports Included"
-            subtitle="Premier League, UEFA Champions League, NBA, BeIN Sports, TNT Sports, Sky Sports, PPV events, live sports replays and more — all in one subscription."
+            badge="Channel Lineup"
+            title="Top Channels in Every Category"
+            subtitle="Sports, entertainment, kids, news, movies and series — here are a few highlights from our 22,000+ live channels."
           />
-          <SportsSlider />
-        </div>
-      </section>
-
-      {/* Movie Slider */}
-      <section className="py-20 md:py-28 border-y border-white/5 section-atmosphere">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionTitle
-            badge="Trending Now"
-            title="Popular Movies & Shows"
-            subtitle="A glimpse of what's available in our massive VOD library. New content added daily."
-          />
-          <MovieSlider movies={movies} />
+          <ChannelCategories />
         </div>
       </section>
 
@@ -418,6 +427,35 @@ export default function Home() {
             subtitle="Join over 50,000 satisfied subscribers who made the switch to premium IPTV."
           />
           <Testimonials testimonials={testimonials} />
+        </div>
+      </section>
+
+      {/* Global Coverage */}
+      <section className="border-b border-white/5 py-16 md:py-20 section-atmosphere">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <SectionTitle
+            badge="Global Coverage"
+            title="IPTV Available Worldwide"
+            subtitle="Explore supported locations across North America, Europe, the Middle East, Asia, Africa, and Latin America. Contact us to confirm availability in your country."
+          />
+          <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 md:gap-4">
+            {coverageCountries.map((country) => (
+              <div
+                key={country.code}
+                className="flex min-h-16 min-w-0 items-center gap-2.5 rounded-xl border border-warm-500/20 bg-gradient-to-br from-white/[0.045] to-white/[0.015] px-3 py-3 transition-colors hover:border-warm-400/45 sm:gap-3 sm:px-4"
+              >
+                <img
+                  src={`https://flagcdn.com/w80/${country.code.toLowerCase()}.png`}
+                  alt={`${country.name} flag`}
+                  width={32}
+                  height={24}
+                  loading="lazy"
+                  className="h-6 w-8 shrink-0 rounded-sm object-cover shadow-sm ring-1 ring-white/10"
+                />
+                <span className="min-w-0 text-xs font-semibold leading-snug text-gray-200 sm:text-sm">{country.name}</span>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
