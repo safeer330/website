@@ -3,7 +3,7 @@ import { restreamPlans } from '@/data/pricingPlans';
 
 export default function RestreamPlanGrid() {
   return (
-    <div className="grid grid-cols-1 gap-6 pt-8 sm:grid-cols-2 lg:grid-cols-4">
+    <div className="grid grid-cols-1 gap-6 pt-4 sm:grid-cols-2 md:pt-8 lg:grid-cols-4">
       {restreamPlans.map((plan) => (
         <div
           key={plan.name}

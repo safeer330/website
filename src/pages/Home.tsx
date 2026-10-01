@@ -293,7 +293,7 @@ export default function Home() {
       {/* Pricing Plans */}
       <section id="plans" className="py-20 md:py-28 border-y border-white/10 section-atmosphere">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-10 flex flex-col items-center gap-8">
+          <div className="mb-6 flex flex-col items-center gap-8 md:mb-10">
             <div className="inline-grid w-full max-w-xl grid-cols-3 overflow-hidden rounded-xl border border-warm-500/35 bg-black/20" role="tablist" aria-label="Pricing categories">
               {(Object.keys(pricingTabs) as PricingTabId[]).map((tabId) => {
                 const tab = pricingTabs[tabId];
@@ -319,14 +319,14 @@ export default function Home() {
                 );
               })}
             </div>
-            <SectionTitle badge={activePricing.badge} title={activePricing.title} subtitle={activePricing.subtitle} />
+            <SectionTitle badge={activePricing.badge} title={activePricing.title} subtitle={activePricing.subtitle} className="mb-0 md:mb-12" />
           </div>
 
           <div id="home-pricing-panel" role="tabpanel" aria-labelledby={`pricing-tab-${activePricingTab}`} tabIndex={0}>
             {activePricingTab === 'restream' ? (
               <RestreamPlanGrid />
             ) : (
-              <div className="grid grid-cols-1 gap-6 pt-8 sm:grid-cols-2 lg:grid-cols-4">
+              <div className="grid grid-cols-1 gap-6 pt-4 sm:grid-cols-2 md:pt-8 lg:grid-cols-4">
                 {(activePricingTab === 'subscriptions' ? subscriptionPlans : resellerCreditPlans).map((plan) => (
                   <PlanCard key={plan.name} plan={plan} />
                 ))}
